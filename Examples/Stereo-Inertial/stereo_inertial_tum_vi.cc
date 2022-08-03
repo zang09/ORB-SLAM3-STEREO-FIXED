@@ -45,7 +45,7 @@ int main(int argc, char **argv)
     if (bFileName)
         file_name = string(argv[argc-1]);
 
-    if(argc < 7) 
+    if(argc < 7)
     {
         cerr << endl << "Usage: ./stereo_inertial_tum_vi path_to_vocabulary path_to_settings path_to_image_folder_1 path_to_image_folder_2 path_to_times_file path_to_imu_data (trajectory_file_name)" << endl;
         return 1;
@@ -144,7 +144,7 @@ int main(int argc, char **argv)
             if(imageScale != 1.f)
             {
 #ifdef REGISTER_TIMES
-    #ifdef COMPILEDWITHC11
+    #ifdef COMPILEDWITHC14
                 std::chrono::steady_clock::time_point t_Start_Resize = std::chrono::steady_clock::now();
     #else
                 std::chrono::monotonic_clock::time_point t_Start_Resize = std::chrono::monotonic_clock::now();
@@ -155,7 +155,7 @@ int main(int argc, char **argv)
                 cv::resize(imLeft, imLeft, cv::Size(width, height));
                 cv::resize(imRight, imRight, cv::Size(width, height));
 #ifdef REGISTER_TIMES
-    #ifdef COMPILEDWITHC11
+    #ifdef COMPILEDWITHC14
                 std::chrono::steady_clock::time_point t_End_Resize = std::chrono::steady_clock::now();
     #else
                 std::chrono::monotonic_clock::time_point t_End_Resize = std::chrono::monotonic_clock::now();
@@ -201,7 +201,7 @@ int main(int argc, char **argv)
             cout << "first imu time: " << fixed << vTimestampsImu[seq][0] << endl;
             cout << "size vImu: " << vImuMeas.size() << endl;*/
 
-    #ifdef COMPILEDWITHC11
+    #ifdef COMPILEDWITHC14
             std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
     #else
             std::chrono::monotonic_clock::time_point t1 = std::chrono::monotonic_clock::now();
@@ -210,7 +210,7 @@ int main(int argc, char **argv)
             // Pass the image to the SLAM system
             SLAM.TrackStereo(imLeft,imRight,tframe,vImuMeas);
 
-    #ifdef COMPILEDWITHC11
+    #ifdef COMPILEDWITHC14
             std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
     #else
             std::chrono::monotonic_clock::time_point t2 = std::chrono::monotonic_clock::now();

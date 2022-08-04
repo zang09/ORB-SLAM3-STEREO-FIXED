@@ -1,11 +1,10 @@
 # ORB-SLAM3-STEREO-FIXED
 
-## Modification
 This repository is a modified version of [ORB_SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3)  
 
 --- 
 
-### August 3rd, 2022
+### Modification
 - Succesfully tested in **Ubuntu 20.04** and **ROS2 Foxy**(with OpenCV 4.2.0)
 - Update from C++11 to C++14
 - Fixed unexpected <span style="color:red">error</span> when start **STEREO** mode with **Rectified** camera type  
